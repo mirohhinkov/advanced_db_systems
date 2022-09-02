@@ -1,4 +1,5 @@
 const React = require('react');
+const MakeParagraphs = require('./../Utils/MakeParagraphs');
 
 const Comment = ({ comment, logged }) => {
   return (
@@ -8,12 +9,18 @@ const Comment = ({ comment, logged }) => {
         <div className="header_element right">
           <a href={`/editReview/${comment._id}`}>
             {logged && comment.user._id.equals(logged) && (
-              <img id="pencil_small" src="/img/pencil.png" />
+              <img className="small_icon" src="/img/pencil.png" />
+            )}
+          </a>
+          &nbsp;
+          <a href={`/deleteReview/${comment._id}`}>
+            {logged && comment.user._id.equals(logged) && (
+              <img className="small_icon" src="/img/bin.png" />
             )}
           </a>
         </div>
       </div>
-      <p>{comment.review}</p>
+      <MakeParagraphs text={comment.review} />
     </>
   );
 };

@@ -76,7 +76,6 @@ exports.addCurrentUser = asyncDecorator(async (req, res, next) => {
   if (req.loggedIn) {
     const id = req.cookies.logged;
     req.user = await User.findById(id);
-    console.log(req.user);
   }
   next();
 });

@@ -8,7 +8,7 @@ const CommentsHeader = ({ id, logged }) => {
       </div>
       <div className="header_element right">
         <a href={logged ? `/review/${id}` : '/login'}>
-          <img id="pencil" src="/img/pencil.png" />
+          <img className="large_icon" src="/img/pencil.png" />
         </a>
       </div>
     </div>

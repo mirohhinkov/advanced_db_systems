@@ -59,6 +59,7 @@ router
   .route('/editReview/:id')
   .get(reviewController.editForm)
   .post(reviewController.editReview);
+router.route('/deleteReview/:id').get(reviewController.delete);
 
 app.all('*', (req, res, next) => {
   next(new Error(`The url ${req.originalUrl} not found on the server!`));

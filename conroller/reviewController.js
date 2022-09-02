@@ -37,3 +37,9 @@ exports.editReview = asyncDecorator(async (req, res, next) => {
   console.log(review.post);
   res.redirect(`/posts/${review.post._id}`);
 });
+
+exports.delete = asyncDecorator(async (req, res, next) => {
+  const { id } = req.params;
+  const review = await Review.findByIdAndDelete(id);
+  res.redirect(`/posts/${review.post._id}`);
+});
