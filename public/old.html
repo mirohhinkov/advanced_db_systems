@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="blog.css">
+
+</head>
+
+<body>
+    <header id="main-navigation">
+        <img src="miro.jpg" alt="Miroslav the author of this blog" />
+        <h1><a href="starting-page.html">Miroslav's Blog</a></h1>
+        <nav>
+            <a href="/posts">All Posts</a>
+            <a href="/contact">Contact</a>
+            <a href="/about">About</a>
+            <a href="/dashboard">My Dashboard</a>
+        </nav>
+    </header>
+    <section id="welcome">
+        <p></p>
+    </section>
+
+    <section id="latest-posts">
+
+        <h2>My latest posts</h2>
+        <ul>
+            <li>
+                <article class="post">
+                    <a href="">
+                        <img src="mountains.jpg" alt="Mountain Hiking">
+                        <div class="post__content">
+                            <h3>Mountain Hiking</h3>
+                            <p>These bean definitions correspond to the actual objects that make up your application.
+                                Typically, you define service layer objects, data access objects (DAOs), presentation
+                                objects such as Struts Action instances, infrastructure objects such as Hibernate
+                                SessionFactories, JMS Queues, and so forth. </p>
+                        </div>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article class="post">
+                    <a href="">
+                        <img src="coding.jpg" alt="Coding">
+                        <div class="post__content">
+                            <h3>Coding</h3>
+                            <p>Typically, one does not configure fine-grained domain objects in the container, because
+                                it is usually the responsibility of DAOs and business logic to create and load domain
+                                objects. However, you can use Spring’s integration with AspectJ to configure objects
+                                that have been created outside the control of an IoC container. See Using AspectJ to
+                                dependency-inject domain objects with Spring.</p>
+                        </div>
+                    </a>
+                </article>
+            </li>
+
+        </ul>
+
+
+    </section>
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>Hello, I'm Miroslav and I love blog about coding and tech</p>
+    </section>
+</body>
+
+</html>

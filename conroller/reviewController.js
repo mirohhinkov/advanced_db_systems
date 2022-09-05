@@ -34,7 +34,6 @@ exports.editReview = asyncDecorator(async (req, res, next) => {
   const review = await Review.findByIdAndUpdate(id, {
     review: req.body.review,
   });
-  console.log(review.post);
   res.redirect(`/posts/${review.post._id}`);
 });
 

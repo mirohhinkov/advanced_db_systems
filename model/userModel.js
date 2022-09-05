@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
     select: false,
     required: [true, 'Password cannot be empty'],
   },
+  photo: {
+    type: String,
+    default: "",
+  }
 });
 
 userSchema.pre('save', function (next) {

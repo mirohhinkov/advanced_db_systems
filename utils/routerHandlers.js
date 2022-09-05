@@ -59,7 +59,7 @@ exports.userLogin = (req, res) => {
 exports.userLoging = asyncDecorator(async (req, res, next) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email }).select('+password');
-  if (password === decrypt(user.password)) {
+  if (user && password === decrypt(user.password)) {
     const options = {
       expires: new Date(
         Date.now() + (+process.env.COOKIE_EXPIRES_IN || 1) * 24 * 60 * 60 * 1000 // 1 day by default
