@@ -4,6 +4,7 @@ const app = express();
 // const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 // const populating = require('./utils/populating');
 
@@ -22,6 +23,8 @@ app.engine('jsx', reactViews.createEngine());
 // Defining folder to serve static content
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Enable All CORS Requests
+app.use(cors());
 // body parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
