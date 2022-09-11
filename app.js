@@ -5,9 +5,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const multer = require('multer');
-
-const upload = multer({ dest: 'public/img' });
+const mongoSanitize = require('express-mongo-sanitize');
+const xssClean = require('xss-clean');
+const cors = require('cors');
 
 // const populating = require('./utils/populating');
 
@@ -23,6 +23,16 @@ const userController = require('./conroller/userController');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jsx');
 app.engine('jsx', reactViews.createEngine());
+
+//Security middleware
+// Data sanitization against noSQL query injections
+app.use(mongoSanitize());
+
+// Data sanitization against XSS (cross site scripting) atacks
+app.use(xssClean());
+
+// Enable All CORS Requests
+app.use(cors());
 
 // Defining folder to serve static content
 app.use(express.static(path.join(__dirname, 'public')));
