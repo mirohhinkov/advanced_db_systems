@@ -5,7 +5,7 @@ const React = require('react');
 const LoginForm = ({ invalid }) => (
   <main className="main">
     <div className="login-form">
-      {invalid && (<h2 className="red">Invalid Login</h2>)}
+      {invalid && <h2 className="red">Invalid Login</h2>}
       <form className="form" action="/login" method="POST">
         <div className="form__group">
           <label className="form__label" htmlFor="email">
@@ -34,6 +34,7 @@ const LoginForm = ({ invalid }) => (
             minLength="5"
           />
         </div>
+        <p>To register an account please send a message via contact form.</p>
         <div className="form__group">
           <input type="submit" className="btn btn--blue" value="Login" />
         </div>

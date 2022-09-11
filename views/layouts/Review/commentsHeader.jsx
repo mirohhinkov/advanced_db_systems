@@ -1,6 +1,6 @@
 const React = require('react');
 
-const CommentsHeader = ({ id, logged }) => {
+const CommentsHeader = ({ id, logged, owner }) => {
   return (
     <div className="comments">
       <div className="header_element">
@@ -8,7 +8,7 @@ const CommentsHeader = ({ id, logged }) => {
       </div>
       <div className="header_element right">
         <a href={logged ? `/review/${id}` : '/login'}>
-          <img className="large_icon" src="/img/pencil.png" />
+          {logged && <img className="large_icon" src="/img/pencil.png" />}
         </a>
       </div>
     </div>

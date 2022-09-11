@@ -303,6 +303,10 @@ main {
   justify-content: center;
 }
 
+.comments {
+  width: 100%;
+}
+
 .right {
   display: flex;
   justify-content: right;
@@ -444,12 +448,9 @@ main {
   border-radius: 50%;
 }
 
-/* .icon {
-  max-width: 100%;
-  max-height: auto;
-  object-fit: contain;
-
-} */
+.hr {
+  border-bottom: 2px;
+}
 
 #modal_backgound {
   position: fixed;
@@ -522,4 +523,28 @@ div p {
 #msg-content {
   text-align: center;
   margin-top: 1rem;
+}
+
+.field {
+  width: 10rem;
+  height: 6rem;
+  background-color: lightblue;
+  color: #060230;
+  text-align: center;
+  border-bottom: 5px solid #060230;
+  margin: 1rem;
+}
+.field_link {
+  text-decoration: none;
+}
+
+.field h3 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }

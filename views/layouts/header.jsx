@@ -43,7 +43,6 @@ const Header = ({ showMe, logged, usr }) => {
         <nav>
           <a href="/posts">All Posts</a>
           <a href="/contact">Contact</a>
-          <a href="/about">About</a>
           <a href="/login">{logged ? 'Logout' : 'Login'}</a>
           <span id="dashboard">My Dashboard</span>
           <UserImageMenu logged={logged} usr={usr} />

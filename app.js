@@ -34,12 +34,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-//logging
-// console.log(process.env.NODE_ENV);
-// if (process.env.NODE_ENV === 'development') {
-//   app.use(morgan('dev'));
-// }
-
 app.use((req, res, next) => {
   req.loggedIn = 'logged' in req.cookies;
   req.ownerLogged = 'owner' in req.cookies;
@@ -101,6 +95,12 @@ router
 
 app.use(authController.isOwnerLogged);
 router.route('/dashboard').get(ownerController.dashboard);
+router
+  .route('/createPost')
+  .get(postController.createNewPost)
+  .post(postController.savePost);
+router.route('/viewMessages').get(userController.viewMessages);
+router.route('/deleteMessage/:id').get(userController.deleteMessage);
 
 //All other routes
 app.all('*', (req, res, next) => {

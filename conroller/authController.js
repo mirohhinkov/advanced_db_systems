@@ -29,6 +29,7 @@ exports.userLoging = asyncDecorator(async (req, res, next) => {
 
 exports.ownerLogin = (req, res) => {
   res.clearCookie('logged');
+  const { password } = req.body;
   if (password === process.env.PASSWORD) {
     res.cookie('owner', 'logged');
     return res.redirect('/dashboard');

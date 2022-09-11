@@ -49,18 +49,6 @@ exports.pagedPosts = asyncDecorator(async (req, res, next) => {
   });
 });
 
-// exports.getPost = asyncDecorator(async (req, res) => {
-//   console.log('in get post');
-//   const { id } = req.params;
-//   const post = await Post.findOneById(id).populate({
-//     path: 'review',
-//     fields: 'review user',
-//   });
-//   res.status(200).json({
-//     post,
-//   });
-// });
-
 exports.singlePost = asyncDecorator(async (req, res, next) => {
   const { id } = req.params;
   const post = await Post.findById(id).populate({
@@ -70,8 +58,23 @@ exports.singlePost = asyncDecorator(async (req, res, next) => {
   res.render('singlePost', {
     title: post.title,
     logged: req.loggedIn,
+    owner: req.ownerLogged,
     post,
     id,
     usr: req.user,
   });
 });
+
+exports.createNewPost = (req, res) => {
+  res.render('createPost', {
+    logged: req.loggedIn,
+    usr: req.user,
+  });
+};
+
+exports.savePost = (req, res) => {
+  req.body.imgAlt = req.body.title;
+  const post = new Post(req.body);
+  post.save();
+  res.redirect('/dashboard');
+};

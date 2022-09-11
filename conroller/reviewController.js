@@ -26,6 +26,7 @@ exports.editForm = asyncDecorator(async (req, res, next) => {
     id,
     logged: req.loggedIn,
     text: review.review,
+    usr: req.user,
   });
 });
 

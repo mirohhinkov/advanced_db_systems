@@ -97,3 +97,16 @@ const sendCookie = (res, msg) => {
   };
   res.cookie('msg', msg, options);
 };
+
+exports.viewMessages = asyncDecorator(async (req, res, next) => {
+  const messages = await Message.find().sort();
+  res.render('allmessages', {
+    messages,
+  });
+});
+
+exports.deleteMessage = asyncDecorator(async (req, res, next) => {
+  const { id } = req.params;
+  await Message.findByIdAndDelete(id);
+  res.redirect('/viewMessages');
+});
