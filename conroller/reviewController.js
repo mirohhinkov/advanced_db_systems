@@ -16,6 +16,7 @@ exports.addReviewForm = (req, res) => {
     id: req.params.id,
     logged: req.loggedIn,
     text: '',
+    usr: req.user,
   });
 };
 
