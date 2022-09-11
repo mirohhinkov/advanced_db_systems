@@ -29,21 +29,45 @@ nav a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 5%;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-#main-navigation a {
+#main-navigation a,
+#dashboard {
   text-decoration: none;
   color: white;
   font-weight: bold;
 }
 
+#usr-name {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: white;
+  color: #390281;
+  font-size: 1.5rem;
+  text-justify: center;
+  border-radius: 50%;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-right: 5rem;
+  margin-top: 5px;
+}
+
+#usr-name p {
+  text-align: center;
+  margin: 0;
+}
+
 #main-navigation a:hover,
-#main-navigation a:active {
+#main-navigation a:active,
+#dashboard:hover {
   color: #cf79f1;
+  cursor: pointer;
 }
 
 #main-navigation h1 a:hover,
@@ -51,7 +75,7 @@ nav a {
   color: white;
 }
 
-#main-navigation img {
+#my-img {
   width: 6rem;
   height: 6rem;
   object-fit: cover;
@@ -318,16 +342,16 @@ main {
   background-color: #fff;
   -webkit-box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
   box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
-  padding: 5rem 7rem;
+  padding: 2rem 3rem;
   border-radius: 5px;
 }
 
 .form__input {
   display: block;
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: inherit;
-  padding: 1.25rem 1.75rem;
+  padding: 0.75rem 1.25rem;
   border: none;
   width: 100%;
   background-color: #fff;
@@ -339,8 +363,6 @@ main {
   border-radius: 4px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  /* Pseudo element (a visible thing that isn't really in the DOM).
-      Also needs -ms- */
 }
 
 .form__input:focus {
@@ -357,22 +379,22 @@ main {
 }
 
 .form__group:not(:last-child) {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form__label {
   display: block;
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .btn,
 .btn:link,
 .btn:visited {
-  font-size: 1.3rem;
-  padding: 1.4rem 3rem;
-  border-radius: 10rem;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 5rem;
   text-transform: uppercase;
   display: inline-block;
   text-decoration: none;
@@ -382,7 +404,6 @@ main {
   font-weight: 400;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /*Add later when we use this for the button in form*/
   border: none;
   cursor: pointer;
   margin-top: 1rem;
@@ -430,7 +451,7 @@ main {
 
 } */
 
-.modal_backgound {
+#modal_backgound {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -438,10 +459,10 @@ main {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #00000088;
 }
 
-.modal_body {
+#modal_body {
   background-color: white;
   margin: 5% auto;
   padding: 10%;
@@ -455,4 +476,50 @@ div h3 {
 
 div p {
   margin-top: 0px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #390281;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px #00000088;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#msg {
+  width: 60%;
+  height: 5rem;
+  background-color: #55c57a;
+  color: #390281;
+  position: absolute;
+  left: 20%;
+  top: 1rem;
+  border-radius: 5px;
+}
+#msg-content {
+  text-align: center;
+  margin-top: 1rem;
 }

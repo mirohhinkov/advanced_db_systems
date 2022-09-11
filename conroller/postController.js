@@ -7,6 +7,7 @@ exports.latestPosts = asyncDecorator(async (req, res, next) => {
     title: 'Blog Home Page',
     logged: req.loggedIn,
     posts,
+    usr: req.user,
   });
 });
 
@@ -17,17 +18,7 @@ exports.posts = asyncDecorator(async (req, res, next) => {
     logged: req.loggedIn,
     posts,
     page: 0,
-  });
-});
-
-exports.getPost = asyncDecorator(async (req, res) => {
-  const { id } = req.params;
-  const tour = await Post.findOneById(id).populate({
-    path: 'review',
-    fields: 'review user',
-  });
-  res.status(200).json({
-    tour,
+    usr: req.user,
   });
 });
 
@@ -54,8 +45,21 @@ exports.pagedPosts = asyncDecorator(async (req, res, next) => {
     logged: req.loggedIn,
     posts,
     page: newPage,
+    usr: req.user,
   });
 });
+
+// exports.getPost = asyncDecorator(async (req, res) => {
+//   console.log('in get post');
+//   const { id } = req.params;
+//   const post = await Post.findOneById(id).populate({
+//     path: 'review',
+//     fields: 'review user',
+//   });
+//   res.status(200).json({
+//     post,
+//   });
+// });
 
 exports.singlePost = asyncDecorator(async (req, res, next) => {
   const { id } = req.params;
@@ -68,5 +72,6 @@ exports.singlePost = asyncDecorator(async (req, res, next) => {
     logged: req.loggedIn,
     post,
     id,
+    usr: req.user,
   });
 });

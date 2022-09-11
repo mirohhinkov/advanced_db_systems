@@ -5,15 +5,15 @@ const Header = require('./layouts/header');
 const AllPosts = require('./layouts/Posts/posts');
 const Arrows = require('./layouts/Posts/Arrows');
 
-const Home = ({ title, posts, page, logged }) => {
+const Posts = ({ title, posts, page, logged, usr }) => {
   return (
     // eslint-disable-next-line react/destructuring-assignment
     <Default title={title}>
-      <Header showMe={false} logged={logged} />
+      <Header showMe={false} logged={logged} usr={usr} />
       <AllPosts posts={posts} showMe={false} />
       <Arrows page={page} />
     </Default>
   );
 };
 
-module.exports = Home;
+module.exports = Posts;

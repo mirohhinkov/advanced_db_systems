@@ -4,11 +4,11 @@ const React = require('react');
 
 // const ModalBody = <div className="modal_body"></div>;
 
-const Modal = ({ children, show, setShow }) => {
+const Modal = ({ children }) => {
   return (
     <>
-      <div className="modal_backgound" onClick={() => setShow(false)}>
-        <div className="modal_body">{children}</div>
+      <div id="modal_backgound" className="hide">
+        <div id="modal_body">{children}</div>
       </div>
     </>
   );

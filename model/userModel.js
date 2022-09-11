@@ -11,8 +11,12 @@ const userSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: "",
-  }
+    default: '',
+  },
+  blocked: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 userSchema.pre('save', function (next) {
@@ -22,6 +26,11 @@ userSchema.pre('save', function (next) {
   this.password = encrypt(this.password);
   //   delete passwordConfirm fron DB
   this.passwordConfirm = undefined; // this field will not persist in the DB
+  next();
+});
+
+userSchema.pre(/^find/, function (next) {
+  this.find({ active: { $ne: true } });
   next();
 });
 

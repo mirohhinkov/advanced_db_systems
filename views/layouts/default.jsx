@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-const React = require("react");
+const React = require('react');
 
 const base = (props) => (
   <html lang="en">
@@ -13,8 +11,12 @@ const base = (props) => (
       <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
       <title>{props.title}</title>
     </head>
-    <body>{props.children}</body>
-
+    <body>
+      <>
+        {props.children}
+        <script src="/js/script.js" />
+      </>
+    </body>
   </html>
 );
 
