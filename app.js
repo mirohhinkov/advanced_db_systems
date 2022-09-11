@@ -7,7 +7,6 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const mongoSanitize = require('express-mongo-sanitize');
 const xssClean = require('xss-clean');
-const cors = require('cors');
 
 // const populating = require('./utils/populating');
 
