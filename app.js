@@ -80,6 +80,11 @@ router
   .post(reviewController.editReview);
 router.route('/deleteReview/:id').get(reviewController.delete);
 
+router
+  .route('/contact')
+  .get(userController.sendMessage)
+  .post(userController.saveMessage);
+
 //Update user routes
 // check if user or owner has logged in otherwise redirect to home page
 app.use(authController.isLogged);

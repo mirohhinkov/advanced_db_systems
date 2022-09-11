@@ -1,7 +1,7 @@
 const asyncDecorator = require('./../utils/asyncDecorator');
 const User = require('./../model/userModel');
+const Message = require('../model/messageModel');
 const { encrypt, decrypt } = require('../utils/myCrypt');
-const { signedCookie } = require('cookie-parser');
 
 exports.updateEmail = (req, res) => {
   res.render('updateEmail', {
@@ -18,12 +18,7 @@ exports.doUpdateEmail = asyncDecorator(async (req, res, next) => {
     const user = await User.findById(id).select('+password');
     if (password.trim() === decrypt(user.password)) {
       req.user = await User.findByIdAndUpdate(id, { email });
-      const options = {
-        expires: new Date(Date.now() + 5000),
-        httpOnly: false,
-        SameSite: 'none',
-      };
-      res.cookie('msg', 'Email updated successful.', options);
+      sendCookie(res, 'Email updated successful.');
       return res.redirect('/posts');
     } else {
       res.render('updateEmail', {
@@ -58,7 +53,7 @@ exports.doUpdatePassword = asyncDecorator(async (req, res, next) => {
         password: encrypt(newPassword.trim()),
       });
 
-      signedCookie('Password updated successful.');
+      sendCookie(res, 'Password updated successful.');
       return res.redirect('/posts');
     } else {
       res.render('updatePassword', {
@@ -80,7 +75,21 @@ exports.uploadUserImage = (req, res) => {
   });
 };
 
-const signedCookie = (msg) => {
+exports.sendMessage = (req, res) => {
+  res.render('contact', {
+    logged: req.loggedIn,
+    usr: req.user,
+  });
+};
+
+exports.saveMessage = (req, res) => {
+  const message = new Message(req.body);
+  message.save();
+  sendCookie(res, 'Message sent');
+  res.redirect('/posts');
+};
+
+const sendCookie = (res, msg) => {
   const options = {
     expires: new Date(Date.now() + 5000),
     httpOnly: false,
