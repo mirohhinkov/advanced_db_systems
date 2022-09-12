@@ -30,9 +30,6 @@ app.use(mongoSanitize());
 // Data sanitization against XSS (cross site scripting) atacks
 app.use(xssClean());
 
-// Enable All CORS Requests
-app.use(cors());
-
 // Defining folder to serve static content
 app.use(express.static(path.join(__dirname, 'public')));
 

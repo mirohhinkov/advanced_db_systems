@@ -3,7 +3,11 @@ const { encrypt, decrypt } = require('../utils/myCrypt');
 
 const userSchema = new mongoose.Schema({
   userName: { type: String, required: [true, 'Username cannot be empty'] },
-  email: { type: String, required: [true, 'E-mail cannot be empty'] },
+  email: {
+    type: String,
+    unique: true,
+    required: [true, 'E-mail cannot be empty'],
+  },
   password: {
     type: String,
     select: false,
@@ -30,7 +34,7 @@ userSchema.pre('save', function (next) {
 });
 
 userSchema.pre(/^find/, function (next) {
-  this.find({ active: { $ne: true } });
+  this.find({ blocked: { $ne: true } });
   next();
 });
 
