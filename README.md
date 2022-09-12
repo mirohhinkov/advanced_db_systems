@@ -10,4 +10,4 @@ The project follows the MVC design pattern. Used technologies are: HTML, CSS, a 
 - The owner of the site creates all posts.
 - The owner can delete any comment.
 - The registered users can create comments under each posts, edit and delete them.
-
+- The registered users can update the password and email.
